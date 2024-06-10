@@ -39,9 +39,10 @@ function init() {
     hemiLight.position.set(0, 200, 0);
     scene.add(hemiLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 5);
+    // Proyección de sombras de todos los objetos
+    const dirLight = new THREE.DirectionalLight(0x940f85, 20);
     dirLight.position.set(0, 200, 100);
-    dirLight.castShadow = true;
+    dirLight.castShadow = false;
     dirLight.shadow.camera.top = 180;
     dirLight.shadow.camera.bottom = - 100;
     dirLight.shadow.camera.left = - 120;
@@ -134,6 +135,7 @@ function loadAsset(asset) {
 
             if (child.isMesh) {
 
+                // Proyección de sombra de este objeto
                 child.castShadow = true;
                 child.receiveShadow = true;
 
